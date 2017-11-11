@@ -20,12 +20,12 @@ def initialize_word_list():
     """Initializes word list"""
 
     # Get word_file
-    word_file = open("Dictionary.txt", "r")
+    word_file = open("test.txt", "r")
 
     word_list = []
 
     # Iterate over word_file and build list
     for word in word_file:
-        word_list.append(word.strip)
+        word_list.append(word.strip())
 
     return word_list
