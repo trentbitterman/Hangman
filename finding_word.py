@@ -6,6 +6,6 @@ def narrow_by_length(word_list, word_length):
     of the wrong length
     """
 
-    for word in word_list:
-        if len(word) is not word_length:
+    for word in word_list[:]:
+        if not len(word) == word_length:
             word_list.remove(word)
