@@ -20,9 +20,7 @@ def main():
     word_length = ig.get_word_length()
 
     # Cull words of the wrong length from word_list
-    print(len(word_list))
     fw.narrow_by_length(word_list, word_length)
-    print(len(word_list))
 
 
 
