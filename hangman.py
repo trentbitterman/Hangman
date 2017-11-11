@@ -13,8 +13,14 @@ def main():
     # Greet the player
     print("Welcome to Hangman!")
 
+    # Get the game difficulty from player
+    game_difficulty = ig.get_game_difficulty()
+
+    # Load correct game file
+    filename = ig.get_game_file(game_difficulty)
+
     # Initialize word_list
-    word_list = ig.initialize_word_list()
+    word_list = ig.initialize_word_list(filename)
 
     # Get word length from player
     word_length = ig.get_word_length()
