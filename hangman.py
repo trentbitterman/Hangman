@@ -16,14 +16,14 @@ def main():
     # Get the game difficulty from player
     game_difficulty = ig.get_game_difficulty()
 
+    # Get word length from player
+    word_length = ig.get_word_length()
+
     # Load correct game file
-    filename = ig.get_game_file(game_difficulty)
+    filename = ig.get_game_file(game_difficulty, word_length)
 
     # Initialize word_list
     word_list = ig.initialize_word_list(filename)
-
-    # Get word length from player
-    word_length = ig.get_word_length()
 
     # Cull words of the wrong length from word_list
     fw.narrow_by_length(word_list, word_length)

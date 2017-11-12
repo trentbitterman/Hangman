@@ -38,7 +38,8 @@ def initialize_word_list(filename):
 def get_game_difficulty():
     """Lets player select game difficulty"""
 
-    print("Would you like to play the game at easy, medium, or hard?\nNote: Playing the game at hard will heavily slow things down.")
+    print("Would you like to play the game at easy, medium, or hard?")
+    print("Note: Playing the game at hard will heavily slow things down.")
 
     # Ask player for game difficulty
     game_difficulty = None
@@ -60,11 +61,11 @@ def get_game_difficulty():
             print("Try inputting \"easy\" or \"e\"")
     return game_difficulty
 
-def get_game_file(game_difficulty):
+def get_game_file(game_difficulty, word_length):
     """Returns appropriate filename for set difficulty"""
 
     if game_difficulty == "h":
-        return "resources/word_list_large.txt"
+        return "resources/hard_lists/" + str(word_length) + "-words.txt"
     elif game_difficulty == "m":
-        return "resources/word_list_medium.txt"
-    return "resources/word_list_small.txt"
+        return "resources/medium_lists/" + str(word_length) + "-words.txt"
+    return "resources/easy_lists/" + str(word_length) + "-words.txt"
