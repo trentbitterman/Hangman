@@ -25,9 +25,6 @@ def main():
     # Initialize word_list
     word_list = ig.initialize_word_list(filename)
 
-    # Cull words of the wrong length from word_list
-    fw.narrow_by_length(word_list, word_length)
-
 
 
 if __name__ == "__main__":
