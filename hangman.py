@@ -2,6 +2,7 @@
 
 import initialize_game as ig
 import finding_word as fw
+import print_hangman as ph
 
 def main():
     """
