@@ -69,3 +69,34 @@ def get_game_file(game_difficulty, word_length):
     elif game_difficulty == "m":
         return "resources/medium_lists/" + str(word_length) + "-words.txt"
     return "resources/easy_lists/" + str(word_length) + "-words.txt"
+
+def initialize_game():
+    """Uses above functions to initialize all game data"""
+
+    hangman_art = """
+                   _
+                  | |
+                  | |__   __ _ _ __   __ _ _ __ ___   __ _ _ __
+                  | '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \\
+                  | | | | (_| | | | | (_| | | | | | | (_| | | | |
+                  |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                                      __/ |
+                                     |___/
+                  """
+
+    # Greet the player
+    print(hangman_art)
+
+    # Get the game difficulty from player
+    game_difficulty = get_game_difficulty()
+
+    # Get word length from player
+    word_length = get_word_length()
+
+    # Load correct game file
+    filename = get_game_file(game_difficulty, word_length)
+
+    # Initialize word_list
+    word_list = initialize_word_list(filename)
+
+    return word_list, word_length
