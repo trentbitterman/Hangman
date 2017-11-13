@@ -1,5 +1,7 @@
 """initialize_game.py - functions for setting up game state"""
 
+import lzma
+
 def get_word_length():
     """Gets the length of the word from the player"""
 
@@ -21,7 +23,7 @@ def initialize_word_list(filename):
 
     # Get word_file
     try:
-        word_file = open(filename, "r")
+        word_file = lzma.open(filename)
     except FileNotFoundError:
         print("Error: " + filename + " not found.")
 
@@ -66,10 +68,10 @@ def get_game_file(game_difficulty, word_length):
     """Returns appropriate filename for set difficulty"""
 
     if game_difficulty == "h":
-        return "resources/hard_lists/" + str(word_length) + "-words.txt"
+        return "resources/hard_lists/" + str(word_length) + "-words.txt.xz"
     elif game_difficulty == "m":
-        return "resources/medium_lists/" + str(word_length) + "-words.txt"
-    return "resources/easy_lists/" + str(word_length) + "-words.txt"
+        return "resources/medium_lists/" + str(word_length) + "-words.txt.xz"
+    return "resources/easy_lists/" + str(word_length) + "-words.txt.xz"
 
 def initialize_game():
     """Uses above functions to initialize all game data"""
