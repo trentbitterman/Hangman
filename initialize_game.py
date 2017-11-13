@@ -38,8 +38,9 @@ def initialize_word_list(filename):
 def get_game_difficulty():
     """Lets player select game difficulty"""
 
-    print("Would you like to play the game at easy, medium, or hard?")
-    print("Note: Playing the game at hard will heavily slow things down.")
+    print("Would you like to play the game at " + "\033[1m" + "easy"
+          + "\033[0m" + ", " + "\033[1m" + "medium" + "\033[0m" + ", or "
+          + "\033[1m" + "hard" + "\033[0m" + "?")
 
     # Ask player for game difficulty
     game_difficulty = None
