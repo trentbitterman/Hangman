@@ -23,7 +23,7 @@ def initialize_word_list(filename):
 
     # Get word_file
     try:
-        word_file = lzma.open(filename)
+        word_file = lzma.open(filename, mode="rt")
     except FileNotFoundError:
         print("Error: " + filename + " not found.")
 
