@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """hangman.py - main file hangman"""
 
 import initialize_game as ig
