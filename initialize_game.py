@@ -31,7 +31,7 @@ def initialize_word_list(filename):
 
     # Iterate over word_file and build list
     for word in word_file:
-        word_list.append(word.strip())
+        word_list.append(word.strip().lower())
 
     word_file.close()
 
