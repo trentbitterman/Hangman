@@ -53,6 +53,10 @@ def main():
                 print("Congratulations, you beat me!")
                 game_finished = True
 
+        if word_list is []:
+            print("Congratulations, you beat me!")
+            game_finished = True
+
         guess_letter, guessed_letters = fw.make_new_guess(word_list, guessed_letters)
 
 
