@@ -17,7 +17,7 @@ def main():
     guessed_letters = ["e"]
 
     # Initialize all game data
-    word_list, word_length = ig.initialize_game()
+    word_list = ig.initialize_game()
 
     while not game_finished:
         # Computer makes guess (first guess always 'e')

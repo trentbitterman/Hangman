@@ -102,4 +102,4 @@ def initialize_game():
     # Initialize word_list
     word_list = initialize_word_list(filename)
 
-    return word_list, word_length
+    return word_list
