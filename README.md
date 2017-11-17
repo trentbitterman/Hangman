@@ -43,3 +43,5 @@ on the player's responses to the computer's questions.
 This is the file that stores the main function that starts 
 and controls the game state. This is where the main game logic 
 is held.  
+
+Note: This program requires Python 3.
