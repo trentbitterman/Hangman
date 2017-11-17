@@ -54,7 +54,7 @@ def main():
                 print("Congratulations, you beat me!")
                 game_finished = True
 
-        if word_list is []:
+        if word_list == []:
             print("Congratulations, you beat me!")
             game_finished = True
 
