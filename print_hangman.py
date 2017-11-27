@@ -1,7 +1,7 @@
 """Functions to print out the state of the hanged man"""
 
 def print_hangman(hangman_state):
-    """Runs correct hangman depending on state"""
+    """Prints correct hangman depending on state"""
 
     if hangman_state == 0:
         print_state_zero()
