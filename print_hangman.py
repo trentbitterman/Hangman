@@ -3,9 +3,7 @@
 def print_hangman(hangman_state):
     """Prints correct hangman depending on state"""
 
-    if hangman_state == 0:
-        print_state_zero()
-    elif hangman_state == 1:
+    if hangman_state == 1:
         print_state_one()
     elif hangman_state == 2:
         print_state_two()
@@ -17,20 +15,6 @@ def print_hangman(hangman_state):
         print_state_five()
     else:
         print_state_six()
-
-def print_state_zero():
-    """Prints hangman with state zero"""
-
-    hangman = """
-                _______
-               |/      |
-               |
-               |
-               |
-               |
-               |
-              _|___"""
-    print(hangman)
 
 def print_state_one():
     """Prints hangman with state one"""
