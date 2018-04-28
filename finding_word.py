@@ -1,9 +1,13 @@
+import collections
+
 """finding_word.py - functions to narrow down word_list"""
+
 
 def make_guess(letter):
     """Function that tells the player the computer's guess"""
 
     print("My guess is " + str(letter))
+
 
 def get_answer():
     """Determines whether the guess was correct"""
@@ -20,6 +24,7 @@ def get_answer():
         return True
     return False
 
+
 def get_guess_string():
     """Gets the word with all guessed letters"""
 
@@ -29,8 +34,10 @@ def get_guess_string():
         try:
             answer = input().lower()
         except ValueError:
-            print("Your input should be similar to this: \"-a-gma-\" for the word hangman.")
+            print(
+                "Your input should be similar to this: \"-a-gma-\" for the word hangman.")
     return answer
+
 
 def get_location(guess_string, guess_letter):
     """Determines where guess_letter is in guess_string"""
@@ -41,6 +48,7 @@ def get_location(guess_string, guess_letter):
         if letter == guess_letter:
             positions.append(position)
     return positions
+
 
 def cull_word_list_by_position(word_list, positions, guess_letter):
     """Removes words that don't contain the guessed letter in the correct location"""
@@ -58,6 +66,7 @@ def cull_word_list_by_position(word_list, positions, guess_letter):
 
     return good_list
 
+
 def cull_word_list_by_letter(word_list, guess_letter):
     """Removes words that contain the guessed letter"""
 
@@ -67,22 +76,21 @@ def cull_word_list_by_letter(word_list, guess_letter):
             new_list.append(word)
     return new_list
 
+
 def make_new_guess(word_list, guessed_letters):
     """Make new guess depending on frequency of letters"""
-
-    letters = {}
+    word_string = ""
     for word in word_list:
-        for letter in word:
-            if letter in letters:
-                letters[letter] += 1
-            else:
-                letters[letter] = 1
+        word_string += word
 
-    max_amount = -1
-    final_letter = ""
-    for letter, amount in letters.items():
-        if (amount > max_amount) and (letter not in guessed_letters):
-            final_letter = letter
-            max_amount = amount
+    guessed_string = ""
+    for char in guessed_letters:
+        guessed_string += char
+
+    translation_table = dict.fromkeys(map(ord, guessed_string), None)
+    word_string = word_string.translate(translation_table)
+
+    letters = collections.Counter(word_string)
+    final_letter = letters.most_common(1)[0][0]
     guessed_letters.append(final_letter)
     return final_letter, guessed_letters

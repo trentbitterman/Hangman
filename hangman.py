@@ -21,6 +21,7 @@ def main():
     word_list = ig.initialize_game()
 
     while not game_finished:
+        print(word_list)
         # Computer makes guess (first guess always 'e')
         guess_letter, guessed_letters = fw.make_new_guess(
             word_list, guessed_letters)
@@ -36,7 +37,7 @@ def main():
             ph.print_hangman(hangman_state)
             word_list = fw.cull_word_list_by_letter(word_list, guess_letter)
 
-        if hangman_state == 7:
+        if hangman_state == 10:
             print("Congratulations, you beat me!")
             game_finished = True
             break
@@ -61,9 +62,6 @@ def main():
         if word_list == []:
             print("Congratulations, you beat me!")
             game_finished = True
-
-        guess_letter, guessed_letters = fw.make_new_guess(
-            word_list, guessed_letters)
 
 
 if __name__ == "__main__":
