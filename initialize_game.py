@@ -2,6 +2,7 @@
 
 import lzma
 
+
 def get_word_length():
     """Gets the length of the word from the player"""
 
@@ -17,6 +18,7 @@ def get_word_length():
             print("Sorry, you have to enter an integer, e.g. \"5\"")
 
     return word_length
+
 
 def initialize_word_list(filename):
     """Initializes word list"""
@@ -37,41 +39,11 @@ def initialize_word_list(filename):
 
     return word_list
 
-def get_game_difficulty():
-    """Lets player select game difficulty"""
 
-    print("Would you like to play the game at " + "\033[1m" + "easy"
-          + "\033[0m" + ", " + "\033[1m" + "medium" + "\033[0m" + ", or "
-          + "\033[1m" + "hard" + "\033[0m" + "?")
-
-    # Ask player for game difficulty
-    game_difficulty = None
-    while game_difficulty is None:
-        try:
-            game_difficulty = input().lower()
-            if game_difficulty == "easy" or game_difficulty == "e":
-                game_difficulty = "e"
-                break
-            elif game_difficulty == "medium" or game_difficulty == "m":
-                game_difficulty = "m"
-                break
-            elif game_difficulty == "hard" or game_difficulty == "h":
-                game_difficulty = "h"
-                break
-            game_difficulty = None
-            print("Try inputting \"easy\" or \"e\"")
-        except ValueError:
-            print("Try inputting \"easy\" or \"e\"")
-    return game_difficulty
-
-def get_game_file(game_difficulty, word_length):
+def get_game_file(word_length):
     """Returns appropriate filename for set difficulty"""
+    return "resources/word_lists/" + str(word_length) + "-words.txt.xz"
 
-    if game_difficulty == "h":
-        return "resources/hard_lists/" + str(word_length) + "-words.txt.xz"
-    elif game_difficulty == "m":
-        return "resources/medium_lists/" + str(word_length) + "-words.txt.xz"
-    return "resources/easy_lists/" + str(word_length) + "-words.txt.xz"
 
 def initialize_game():
     """Uses above functions to initialize all game data"""
@@ -90,14 +62,11 @@ def initialize_game():
     # Greet the player
     print(hangman_art)
 
-    # Get the game difficulty from player
-    game_difficulty = get_game_difficulty()
-
     # Get word length from player
     word_length = get_word_length()
 
     # Load correct game file
-    filename = get_game_file(game_difficulty, word_length)
+    filename = get_game_file(word_length)
 
     # Initialize word_list
     word_list = initialize_word_list(filename)

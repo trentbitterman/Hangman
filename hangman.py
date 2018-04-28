@@ -5,6 +5,7 @@ import initialize_game as ig
 import finding_word as fw
 import print_hangman as ph
 
+
 def main():
     """
     main function for hangman.py:
@@ -13,33 +14,36 @@ def main():
     """
 
     game_finished = False
-    guess_letter = "e"
     hangman_state = 0
-    guessed_letters = ["e"]
+    guessed_letters = []
 
     # Initialize all game data
     word_list = ig.initialize_game()
 
     while not game_finished:
         # Computer makes guess (first guess always 'e')
+        guess_letter, guessed_letters = fw.make_new_guess(
+            word_list, guessed_letters)
         fw.make_guess(guess_letter)
         answer = fw.get_answer()
         if answer:
             guess_string = fw.get_guess_string()
             positions = fw.get_location(guess_string, guess_letter)
-            word_list = fw.cull_word_list_by_position(word_list, positions, guess_letter)
+            word_list = fw.cull_word_list_by_position(
+                word_list, positions, guess_letter)
         else:
             hangman_state += 1
             ph.print_hangman(hangman_state)
             word_list = fw.cull_word_list_by_letter(word_list, guess_letter)
 
-        if hangman_state == 6:
+        if hangman_state == 7:
             print("Congratulations, you beat me!")
             game_finished = True
             break
 
         if len(word_list) == 1:
-            print("I think that the word is " + word_list[0] + ". Is that correct?")
+            print("I think that the word is " +
+                  word_list[0] + ". Is that correct?")
             user_answer = None
             while user_answer is None:
                 try:
@@ -58,11 +62,8 @@ def main():
             print("Congratulations, you beat me!")
             game_finished = True
 
-        guess_letter, guessed_letters = fw.make_new_guess(word_list, guessed_letters)
-
-
-
-
+        guess_letter, guessed_letters = fw.make_new_guess(
+            word_list, guessed_letters)
 
 
 if __name__ == "__main__":
