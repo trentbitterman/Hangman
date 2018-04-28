@@ -1,5 +1,6 @@
 """Functions to print out the state of the hanged man"""
 
+
 def print_hangman(hangman_state):
     """Prints correct hangman depending on state"""
 
@@ -13,10 +14,30 @@ def print_hangman(hangman_state):
         print_state_four()
     elif hangman_state == 5:
         print_state_five()
-    else:
+    elif hangman_state == 6:
         print_state_six()
+    elif hangman_state == 7:
+        print_state_seven()
+    else:
+        print_state_eight()
+
 
 def print_state_one():
+    """Prints hangman with state one"""
+
+    hangman = """
+                _______
+               |/      |
+               |
+               |
+               |
+               |
+               |
+              _|___"""
+    print(hangman)
+
+
+def print_state_two():
     """Prints hangman with state one"""
 
     hangman = """
@@ -30,7 +51,8 @@ def print_state_one():
               _|___"""
     print(hangman)
 
-def print_state_two():
+
+def print_state_three():
     """Prints hangman with state two"""
 
     hangman = """
@@ -44,7 +66,8 @@ def print_state_two():
               _|___"""
     print(hangman)
 
-def print_state_three():
+
+def print_state_four():
     """Prints hangman with state three"""
 
     hangman = """
@@ -58,7 +81,8 @@ def print_state_three():
               _|___"""
     print(hangman)
 
-def print_state_four():
+
+def print_state_five():
     """Prints hangman with state four"""
 
     hangman = """
@@ -72,7 +96,23 @@ def print_state_four():
               _|___"""
     print(hangman)
 
-def print_state_five():
+
+def print_state_six():
+    """Prints hangman with state four"""
+
+    hangman = """
+                _______
+               |/      |
+               |      (_)
+               |      \\|/
+               |       |
+               |
+               |
+              _|___"""
+    print(hangman)
+
+
+def print_state_seven():
     """Prints hangman with state five"""
 
     hangman = """
@@ -86,7 +126,8 @@ def print_state_five():
               _|___"""
     print(hangman)
 
-def print_state_six():
+
+def print_state_eight():
     """Prints hangman with state six"""
 
     hangman = """
