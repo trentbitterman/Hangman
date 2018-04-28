@@ -21,7 +21,6 @@ def main():
     word_list = ig.initialize_game()
 
     while not game_finished:
-        print(word_list)
         # Computer makes guess (first guess always 'e')
         guess_letter, guessed_letters = fw.make_new_guess(
             word_list, guessed_letters)
