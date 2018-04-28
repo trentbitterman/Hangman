@@ -167,7 +167,7 @@ def print_state_ten():
     hangman = """
                 _______
                |/      |
-               |      (x_x)
+               |     (x_x)
                |      \\|/
                |       |
                |      / \\
