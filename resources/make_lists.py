@@ -1,5 +1,5 @@
 word_file = open(
-    "/Users/trentbitterman/python/hangman/resources/all_words.txt", "r")
+    "/Users/trentbitterman/python/hangman/resources/combined.txt", "r")
 
 word_list = []
 
